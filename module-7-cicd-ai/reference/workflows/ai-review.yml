@@ -22,7 +22,8 @@ jobs:
   review:
     # Bỏ qua PR nháp và PR từ fork (fork không được dùng secret của repo).
     if: github.event.pull_request.draft == false && github.event.pull_request.head.repo.full_name == github.repository
-    runs-on: ubuntu-latest
+    # Đặt biến RUNNER_AI=self-hosted để job này chạy trên runner của bạn; xóa biến là về runner của GitHub.
+    runs-on: ${{ vars.RUNNER_AI || 'ubuntu-latest' }}
     timeout-minutes: 12 # trần thời gian của MỘT lần review
     permissions:
       contents: read # đọc code; không đẩy được commit
@@ -74,10 +75,13 @@ jobs:
       - name: Claude review theo bmad-code-review
         uses: anthropics/claude-code-action@ae68417a745a5df4b2124873632bd73a2255e6f6 # v1.0.259
         with:
-          # 1. Khoá API chỉ vào đúng tham số này, không vào env của job.
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # 1. Token của gói thuê bao (claude setup-token) chỉ vào đúng tham số này, không vào env của job.
+          #    (Dùng khoá API thay cho token: tham số anthropic_api_key, xem ô ghi chú ở Bước 2 bài 7.1.)
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # 2. Token của chính workflow: chỉ có đúng quyền khai báo ở "permissions" phía trên.
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          # Runner tự dựng: dùng Claude Code cài sẵn trong image, không tải lại 280 MB mỗi lần review.
+          path_to_claude_code_executable: ${{ vars.RUNNER_AI && '/home/runner/.local/bin/claude' || '' }}
           # 3. Có prompt thì action tự chạy mỗi khi PR mở hoặc có commit mới.
           prompt: |
             /bmad-code-review provided diff .ci/pr.diff, spec .ci/spec.md

@@ -81,6 +81,7 @@ Phiên bản trong bảng là bản **đã ghim trong lab**. Hãy cài đúng b�
 | 10 | Agent thứ hai (Gemini CLI / Claude Code / Codex CLI) | ✅ | 5 |
 | 11 | gitleaks 8.30.1 | Không bắt buộc | 7 |
 | 12 | VS Code (hoặc editor bạn quen) | Khuyên dùng | Tất cả |
+| 13 | Docker (Docker Desktop, colima hoặc Docker Engine) và image runner của lớp | Khuyên dùng | 7 |
 
 ---
 
@@ -99,11 +100,11 @@ Phiên bản trong bảng là bản **đã ghim trong lab**. Hãy cài đúng b�
 
 ### 3.2. Tài khoản
 
-- [ ] **GitHub**: có tài khoản, đã bật 2FA. **Gửi username GitHub cho ban tổ chức trước ngày 1** để được thêm vào organization của lớp (cần cho Module 7).
+- [ ] **GitHub**: có tài khoản, đã bật 2FA. **Gửi username GitHub cho ban tổ chức trước ngày 1**. Ở Module 7 bạn fork repo mẫu về tài khoản này (fork public).
 - [ ] **Claude** (nếu dùng Claude): gói Pro, Max, Team hoặc Enterprise; hoặc API key do giảng viên cấp.
 - [ ] **Google** (nếu dùng Gemini, hoặc để làm model thứ hai): tài khoản Google. Nếu tài khoản Google Workspace của công ty bị chặn, tạo API key ở Google AI Studio.
 
-> Ở Module 7, API key dùng trong GitHub Actions do **giảng viên cấp**, đã đặt giới hạn chi phí. Bạn không cần dùng key cá nhân.
+> Ở Module 7, GitHub Actions gọi Claude bằng **token từ gói thuê bao của bạn** (lệnh `claude setup-token`, tạo trong lớp ở bài 7.1; mỗi lượt AI tính vào hạn mức gói). Không có gói thuê bao Claude thì dùng API key do giảng viên cấp, đã đặt giới hạn chi phí.
 
 ### 3.3. Thư mục làm việc
 
@@ -439,6 +440,23 @@ Trình duyệt được lưu ở:
 | macOS | `brew install gitleaks` |
 | Windows / Linux | Tải bản **v8.30.1** ở https://github.com/gitleaks/gitleaks/releases, giải nén, đặt file chạy vào thư mục có trong PATH |
 
+### 5.3. Docker và image runner (Module 7, khuyên dùng)
+
+Ở Module 7, job AI review chạy trong một **runner bạn dựng bằng Docker** trên máy mình. Không có Docker thì job đó chạy trên máy của GitHub, bạn vẫn làm được lab.
+
+```bash
+docker run --rm hello-world          # phải in "Hello from Docker!"
+```
+
+Image của runner nặng khoảng **3,5 GB**, build mất 10-15 phút: **build ở nhà**, đừng build trên Wi-Fi của lớp. Giảng viên phát file `Dockerfile` cùng gói lab Module 7 (`module-7-cicd-ai/reference/runner/`):
+
+```bash
+docker build -t shoplite-runner <thư mục chứa Dockerfile>
+docker run --rm shoplite-runner bash -c 'node --version; gh --version | head -1; ~/.local/bin/claude --version; ~/.bun/bin/bun --version'
+```
+
+Kết quả mong đợi: `v22.…`, `gh version 2.…`, `2.1.309 (Claude Code)`, `1.3.14`. Lệnh build dừng với `curl: (18) Transferred a partial file` thì chạy lại, các bước đã xong được dùng lại.
+
 ---
 
 ## Bước 6 · GitHub
@@ -456,13 +474,11 @@ gh auth status        # phải thấy "Logged in to github.com"
 git ls-remote https://github.com/github/spec-kit.git HEAD   # phải in ra một mã commit
 ```
 
-Khi đã được thêm vào organization của lớp, kiểm tra bạn thấy được org:
+Kiểm tra bạn thấy được repo mẫu của lớp (Module 7 sẽ fork repo này):
 
 ```bash
-gh api user/orgs --jq '.[].login'
+gh repo view trandinhduc/shoplite --json name,visibility --jq '"\(.name) \(.visibility)"'   # shoplite PUBLIC
 ```
-
-> Nếu công ty bắt dùng SSO cho GitHub, sau khi đăng nhập cần vào https://github.com/settings/connections/applications và bấm **Authorize** cho org của lớp.
 
 ---
 
@@ -561,7 +577,7 @@ Nếu học trên mạng công ty có tường lửa hoặc proxy, gửi danh s�
 | Claude | `claude.ai`, `*.anthropic.com`, `*.claude.com` |
 | Gemini | `accounts.google.com`, `*.googleapis.com`, `aistudio.google.com` |
 | npm | `registry.npmjs.org` |
-| GitHub | `github.com`, `api.github.com`, `*.githubusercontent.com` |
+| GitHub | `github.com`, `api.github.com`, `*.githubusercontent.com`, `*.actions.githubusercontent.com` (runner của Module 7) |
 | uv / Python | `astral.sh`, `pypi.org`, `files.pythonhosted.org` |
 | Playwright | `cdn.playwright.dev`, `playwright.download.prss.microsoft.com` |
 | Node / fnm | `nodejs.org`, `fnm.vercel.app` |
@@ -590,6 +606,7 @@ Tick hết trước buổi học đầu tiên:
 - [ ] Đã chạy `npm cache add bmad-method@6.12.4`
 - [ ] Đã tải Chromium cho Playwright 1.64.0
 - [ ] Có model thứ hai cho Module 5
+- [ ] (Module 7, nếu máy chạy được Docker) `docker images shoplite-runner` có image đã build
 
 **Kiểm tra**
 - [ ] `node kiem-tra-moi-truong.mjs` không còn dòng `[LỖI ]`

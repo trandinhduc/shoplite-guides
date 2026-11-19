@@ -70,16 +70,23 @@ function soatFile(dong) {
       bao("LỖI", "R3", i, "pull_request_target chạy với secret của repo. Dùng 'pull_request'.");
   });
 
-  // R4 - Khoá API chỉ vào đúng tham số của bước AI.
+  // R4 - Khoá (token OAuth hoặc khoá API) chỉ vào đúng tham số của bước AI.
   dong.forEach((line, i) => {
     if (/sk-ant-[A-Za-z0-9_-]{10,}/.test(line))
-      bao("LỖI", "R4", i, "Khoá API viết thẳng trong workflow.");
+      bao("LỖI", "R4", i, "Khoá viết thẳng trong workflow.");
     if (/secrets\.ANTHROPIC_API_KEY/.test(line) && !/^\s*anthropic_api_key:/.test(line))
       bao(
         "LỖI",
         "R4",
         i,
         "Khoá API chỉ được vào 'with: anthropic_api_key'. Ở env hay run thì mọi bước đều đọc được.",
+      );
+    if (/secrets\.CLAUDE_CODE_OAUTH_TOKEN/.test(line) && !/^\s*claude_code_oauth_token:/.test(line))
+      bao(
+        "LỖI",
+        "R4",
+        i,
+        "Token OAuth chỉ được vào 'with: claude_code_oauth_token'. Ở env hay run thì mọi bước đều đọc được.",
       );
   });
 
