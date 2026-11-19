@@ -81,7 +81,7 @@ Phiên bản trong bảng là bản **đã ghim trong lab**. Hãy cài đúng b�
 | 10 | Agent thứ hai (Gemini CLI / Claude Code / Codex CLI) | ✅ | 5 |
 | 11 | gitleaks 8.30.1 | Không bắt buộc | 7 |
 | 12 | VS Code (hoặc editor bạn quen) | Khuyên dùng | Tất cả |
-| 13 | Phần mềm chạy container (Rancher Desktop, Docker Engine trong WSL2, hoặc colima; không cần Docker Desktop) và image runner của lớp | Khuyên dùng | 7 |
+| 13 | Phần mềm chạy container (Rancher Desktop, Docker Engine trong WSL2, hoặc colima) và image runner của lớp | Khuyên dùng | 7 |
 
 ---
 
@@ -444,7 +444,7 @@ Trình duyệt được lưu ở:
 
 Ở Module 7, job AI review chạy trong một **runner bạn dựng bằng container** trên máy mình. Không chạy được container thì job đó chạy trên máy của GitHub, bạn vẫn làm được lab.
 
-Lab chỉ cần lệnh `docker` chạy được container Linux. **Không cần Docker Desktop.** Docker Desktop đòi gói trả tiền khi dùng cho công việc ở tổ chức từ 250 nhân viên trở lên hoặc doanh thu từ 10 triệu USD mỗi năm, và ở cơ quan nhà nước; nó miễn phí cho cá nhân, giáo dục và doanh nghiệp nhỏ hơn hai ngưỡng đó. Các lựa chọn dưới đây là mã nguồn mở, dùng ở công ty không cần mua giấy phép:
+Lab chỉ cần lệnh `docker` chạy được container Linux. Khóa học **không dùng Docker Desktop**, vì phần mềm đó cần giấy phép trả tiền ở nhiều tổ chức; máy đã cài sẵn thì thoát hẳn nó trước khi làm các bước dưới. Dùng một trong các lựa chọn mã nguồn mở sau, chọn theo môi trường của bạn:
 
 | Môi trường của bạn (mục 3.4) | Dùng | Giấy phép |
 |---|---|---|
@@ -452,8 +452,6 @@ Lab chỉ cần lệnh `docker` chạy được container Linux. **Không cần 
 | **WSL2** (Ubuntu) | **Docker Engine** cài trong Ubuntu của WSL2 | Apache-2.0 |
 | **macOS** | **colima** (hoặc Rancher Desktop) | MIT |
 | **Linux** | **Docker Engine** | Apache-2.0 |
-
-Đã cài sẵn Docker Desktop và tổ chức của bạn có giấy phép (hoặc thuộc diện miễn phí) thì dùng luôn, bỏ qua phần cài đặt bên dưới.
 
 > ⚠️ Lab đã chạy thử trọn bài với **colima trên macOS (chip Apple)**. Image cũng đã build và kiểm công cụ trên Docker Engine, Linux x64 (máy của GitHub). Rancher Desktop trên Windows và Docker Engine trong WSL2 viết theo tài liệu chính thức, **chưa chạy thử**: báo trợ giảng nếu có bước không khớp.
 
@@ -500,7 +498,6 @@ Riêng với WSL2:
 
 - `systemctl` báo lỗi nghĩa là bản Ubuntu của bạn chưa bật systemd (Ubuntu cài bằng `wsl --install` gần đây đã bật sẵn). Thêm hai dòng `[boot]` và `systemd=true` vào `/etc/wsl.conf`, chạy `wsl.exe --shutdown` trong PowerShell, rồi mở lại Ubuntu.
 - **Giữ một cửa sổ Ubuntu mở trong suốt giờ lab.** Dịch vụ systemd không giữ cho WSL sống: khi không còn cửa sổ nào mở, WSL có thể tắt bản Ubuntu dù Docker đang chạy; runner tắt theo và job AI review đứng ở "Queued".
-- Đã có Docker Desktop bật "WSL integration" cho bản Ubuntu này thì đừng cài thêm Docker Engine: hai bên dễ xung đột lệnh `docker`.
 
 Nhóm `docker` cho user quyền ngang root trên máy đó. Với máy cá nhân dùng cho lab thì chấp nhận được.
 
