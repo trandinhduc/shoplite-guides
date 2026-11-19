@@ -50,7 +50,8 @@ jobs:
         env:
           CA_THU_DAU_VAO: .ci/pr.json
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Token của gói thuê bao, đã đặt ở bài 7.1. (Dùng khoá API: tham số anthropic_api_key, xem ô ghi chú ở bài 7.1.)
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: /release-notes ${{ steps.gom.outputs.moi }} ${{ steps.gom.outputs.cu }}
           claude_args: |

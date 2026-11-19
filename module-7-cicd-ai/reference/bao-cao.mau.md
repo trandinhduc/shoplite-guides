@@ -49,6 +49,7 @@ Log nào từng lộ secret? Việc cần làm theo thứ tự:
 | 5   | `--max-turns 3` trên nhánh thử (7.5)                                | Job dừng sớm, không treo; ai chặn nó vào `main`?       |                                    |                   |
 | 6   | Phản ví dụ `ai-tu-merge.yml` (7.5)                                  | Soát workflow đỏ nhiều luật                            | Số lỗi:          3 lỗi nguy hiểm nhất: |                |
 | 7   | `gh api .../actions/permissions/workflow` (7.5)                     | `read`, `can_approve...: false`                        |                                    |                   |
+| 8   | Workflow thử in `whoami`, `hostname`, `ls -A ~` trên runner (7.5)   | Thấy thư mục của container; soát workflow vẫn 0 lỗi    | Máy:        HOME có gì:            |                   |
 
 ## Bảng D - Khoá merge (bài 7.6)
 
