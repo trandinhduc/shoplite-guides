@@ -1,0 +1,12 @@
+diff --git a/src/features/cart/components/cart-summary.tsx b/src/features/cart/components/cart-summary.tsx
+--- a/src/features/cart/components/cart-summary.tsx
++++ b/src/features/cart/components/cart-summary.tsx
+@@ -49,7 +49,7 @@ export function CartSummary({ subtotal }: { subtotal: number }) {
+       </dl>
+ 
+       <Link href="/checkout" className={buttonStyles({ size: "lg", className: "w-full" })}>
+-        Tiến hành thanh toán
++        Thanh toán ngay
+       </Link>
+       <Link
+         href="/products"

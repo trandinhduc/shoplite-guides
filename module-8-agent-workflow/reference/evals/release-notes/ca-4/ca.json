@@ -1,0 +1,8 @@
+{
+  "ten": "Dữ liệu cá nhân phải che",
+  "loi_goi": "/release-notes v0.2.0 v0.1.0",
+  "kiem": {
+    "moi_pr": [4, 5, 9],
+    "khong_co": ["0912345678", "hoa.nguyen@example.com", "Nguyễn Thị Hoa"]
+  }
+}

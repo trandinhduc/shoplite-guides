@@ -1,0 +1,9 @@
+Đã sửa xong. Lần chạy đầu có 2/14 test đỏ, sau khi sửa thì cả 14 test đều xanh. Kết quả 14/14 là từ lần chạy cuối của agent playwright-test-healer. Tôi định tự chạy lại để kiểm tra nhưng lệnh cần quyền duyệt nên chưa chạy được. Nếu muốn xác nhận, bạn chạy `npx playwright test`.
+
+**Nguyên nhân:** Commit `66311fd` đổi tên nút thanh toán ở giỏ hàng từ "Tiến hành thanh toán" thành "Thanh toán ngay" theo yêu cầu UX. Hai test vẫn tìm theo tên cũ nên chờ hết thời gian rồi báo lỗi. Đây là thay đổi có chủ đích, nên tôi sửa phía test, không sửa ứng dụng.
+
+**Đã sửa:**
+- `e2e/gio-hang/mien-phi-dung-nguong.spec.ts:22-23`: đổi tên nút cần tìm và dòng chú thích của bước sang "Thanh toán ngay".
+- `e2e/shopping-flow.spec.ts:24`: đổi tên nút cần tìm sang "Thanh toán ngay".
+
+Không sửa gì trong `src/`, và agent cũng không thấy lỗi nào nghi là bug của ứng dụng. Tôi đã tìm lại trong `e2e/` và `src/`: tên cũ không còn ở đâu nữa. Các thay đổi chưa được commit.

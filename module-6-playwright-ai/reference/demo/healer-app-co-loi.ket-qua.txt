@@ -1,0 +1,15 @@
+Tôi chưa sửa file nào. 2 test đang đỏ không phải do test sai mà do code app bị lỗi, nên tôi để nguyên chúng.
+
+Healer đã chạy toàn bộ `e2e/`, sau đó tôi tự chạy lại một lần nữa và kết quả giống nhau: **12/14 xanh, 2 đỏ**. `git status` sạch, tức là không có file nào bị thay đổi.
+
+Cả 2 lỗi đều do commit gần nhất `b2ead2f` ("refactor: gọn code giỏ hàng và hủy đơn"). Tôi đã xem diff của commit này để xác nhận:
+
+1. **`e2e/gio-hang/mien-phi-dung-nguong.spec.ts` (GH-4)**: giỏ hàng đúng 500.000đ vẫn bị tính phí ship 30.000đ.
+   - **Nguyên nhân:** `src/features/cart/components/cart-summary.tsx:9` dùng `subtotal > FREE_SHIPPING_THRESHOLD`. Đúng ra phải là `>=`, vì quy tắc trong `pricing.ts` là "từ mức này trở lên" và README cũng ghi miễn phí ship "từ 500.000 ₫".
+   - Bản refactor đã bỏ hàm dùng chung `calculateShippingFee` và tự viết lại điều kiện, nên mới sai ở đúng mốc ngưỡng.
+   - Hệ quả là giỏ hàng tự mâu thuẫn: dòng thông báo ghi "được miễn phí giao hàng" nhưng dòng phí ship vẫn tính 30.000đ.
+
+2. **`e2e/dat-hang/huy-don-xac-nhan-hai-lan.spec.ts` (DH-3)**: hủy đơn thì API báo thành công, nhưng trang vẫn hiện "Chờ xác nhận" và nút "Hủy đơn hàng" vẫn còn.
+   - **Nguyên nhân:** bản refactor đã xóa `router.refresh()` trong `src/features/orders/components/cancel-order-button.tsx`, nên trang không được tải lại dữ liệu sau khi hủy.
+
+Muốn 2 test này xanh trở lại thì phải sửa ở code app: đổi `>` thành `>=` (hoặc dùng lại `calculateShippingFee`/`amountUntilFreeShipping` từ `pricing.ts`), và thêm lại `router.refresh()`. Bạn có muốn tôi sửa 2 chỗ đó rồi chạy lại suite không?

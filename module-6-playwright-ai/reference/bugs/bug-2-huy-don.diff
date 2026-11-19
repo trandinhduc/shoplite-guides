@@ -1,0 +1,24 @@
+diff --git a/src/features/orders/components/cancel-order-button.tsx b/src/features/orders/components/cancel-order-button.tsx
+--- a/src/features/orders/components/cancel-order-button.tsx
++++ b/src/features/orders/components/cancel-order-button.tsx
+@@ -1,12 +1,10 @@
+ "use client";
+ 
+-import { useRouter } from "next/navigation";
+ import { useState } from "react";
+ import { Button } from "@/components/ui/button";
+ import type { ApiErrorBody } from "@/lib/http";
+ 
+ export function CancelOrderButton({ orderId }: { orderId: string }) {
+-  const router = useRouter();
+   const [confirming, setConfirming] = useState(false);
+   const [pending, setPending] = useState(false);
+   const [error, setError] = useState<string | null>(null);
+@@ -27,7 +25,6 @@ export function CancelOrderButton({ orderId }: { orderId: string }) {
+       return;
+     }
+     setConfirming(false);
+-    router.refresh();
+   }
+ 
+   if (!confirming) {

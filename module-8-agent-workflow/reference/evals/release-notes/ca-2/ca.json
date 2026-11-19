@@ -1,0 +1,8 @@
+{
+  "ten": "Biên: hai tag không có gì",
+  "loi_goi": "/release-notes v0.2.0 v0.1.0",
+  "kiem": {
+    "co": ["Không có thay đổi giữa hai tag"],
+    "khong_co": ["## Tính năng mới"]
+  }
+}

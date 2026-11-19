@@ -1,0 +1,115 @@
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:11.1370000Z ##[group]Run node scripts/ci/gate.mjs e2e
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:11.2740000Z node scripts/ci/gate.mjs e2e
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:11.4110000Z shell: /usr/bin/bash -e {0}
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:11.5480000Z ##[endgroup]
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:11.6850000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:11.8220000Z $ npx playwright test --retries=1 --fail-on-flaky-tests
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:11.9590000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:12.0960000Z Running 14 tests using 1 worker
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:12.2330000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:12.3700000Z   ✓   1 [chromium] › e2e/dat-hang/dat-hang-giao-nhanh.spec.ts:6:7 › Thanh toán và đơn hàng › DH-2 đặt hàng giao nhanh: đơn mới đúng tổng tiền, giỏ trống, có trong danh sách đơn @DH-2 (2.4s)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:12.5070000Z   ✓   2 [chromium] › e2e/dat-hang/form-trong.spec.ts:6:7 › Thanh toán và đơn hàng › DH-1 gửi form trống: báo lỗi từng ô bắt buộc và không tạo đơn @DH-1 (557ms)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:12.6440000Z   ✓   3 [chromium] › e2e/dat-hang/huy-don-xac-nhan-hai-lan.spec.ts:6:7 › Thanh toán và đơn hàng › DH-3 hủy đơn chờ xác nhận: phải xác nhận lần hai, trạng thái đổi ngay không cần tải lại @DH-3 (573ms)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:12.7810000Z   ✓   4 [chromium] › e2e/dat-hang/khong-huy-lai-don-da-huy.spec.ts:6:7 › Thanh toán và đơn hàng › DH-3 đơn đã hủy không hủy lại được @DH-3 (22ms)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:12.9180000Z   ✓   5 [chromium] › e2e/dat-hang/so-dien-thoai-sai.spec.ts:6:7 › Thanh toán và đơn hàng › DH-1 số điện thoại sai định dạng: chỉ ô đó báo lỗi @DH-1 (562ms)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:13.0550000Z   ✓   6 [chromium] › e2e/gio-hang/gioi-han-ton-kho.spec.ts:6:7 › Giỏ hàng và phí giao hàng › GH-2 không chọn được nhiều hơn số hàng còn trong kho @GH-2 (2.4s)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:13.1920000Z   ✘   7 [chromium] › e2e/gio-hang/mien-phi-dung-nguong.spec.ts:6:7 › Giỏ hàng và phí giao hàng › GH-4 đúng 500.000đ: miễn phí giao hàng ở giỏ hàng và trang thanh toán @GH-4 (11.1s)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:13.3290000Z   ✘   8 [chromium] › e2e/gio-hang/mien-phi-dung-nguong.spec.ts:6:7 › Giỏ hàng và phí giao hàng › GH-4 đúng 500.000đ: miễn phí giao hàng ở giỏ hàng và trang thanh toán @GH-4 (retry #1) (11.0s)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:13.4660000Z   ✓   9 [chromium] › e2e/gio-hang/phi-duoi-nguong.spec.ts:6:7 › Giỏ hàng và phí giao hàng › GH-3 dưới 500.000đ: tính phí 30.000đ và gợi ý số tiền cần mua thêm @GH-3 (499ms)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:13.6030000Z   ✓  10 [chromium] › e2e/gio-hang/them-san-pham.spec.ts:6:7 › Giỏ hàng và phí giao hàng › GH-1 thêm sản phẩm còn hàng: giỏ hàng hiện đúng số lượng đã chọn @GH-1 (513ms)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:13.7400000Z   ✓  11 [chromium] › e2e/gio-hang/them-san-pham.spec.ts:31:7 › Giỏ hàng và phí giao hàng › GH-1 sản phẩm hết hàng: không có cách nào thêm vào giỏ @GH-1 (612ms)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:13.8770000Z   ✓  12 [chromium] › e2e/gio-hang/toi-da-10-moi-loai.spec.ts:6:7 › Giỏ hàng và phí giao hàng › GH-2 tối đa 10 sản phẩm mỗi loại dù kho còn nhiều @GH-2 (367ms)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:14.0140000Z   ✓  13 [chromium] › e2e/seed.spec.ts:5:5 › seed (389ms)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:14.1510000Z   ✓  14 [chromium] › e2e/shopping-flow.spec.ts:3:5 › khách hàng tìm sản phẩm, thêm vào giỏ và đặt hàng thành công (1.1s)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:14.2880000Z   ✓  15 [chromium] › e2e/shopping-flow.spec.ts:42:5 › lọc theo danh mục và sắp xếp theo giá (559ms)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:14.4250000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:14.5620000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:14.6990000Z   1) [chromium] › e2e/gio-hang/mien-phi-dung-nguong.spec.ts:6:7 › Giỏ hàng và phí giao hàng › GH-4 đúng 500.000đ: miễn phí giao hàng ở giỏ hàng và trang thanh toán @GH-4 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:14.8360000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:14.9730000Z     Error: expect(locator).toBeVisible() failed
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:15.1100000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:15.2470000Z     Locator: getByRole('complementary').filter({ hasText: 'Tóm tắt đơn hàng' }).getByText('Miễn phí', { exact: true })
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:15.3840000Z     Expected: visible
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:15.5210000Z     Timeout: 10000ms
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:15.6580000Z     Error: element(s) not found
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:15.7950000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:15.9320000Z     Call log:
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:16.0690000Z       - Expect "toBeVisible" getByRole('complementary').filter({ hasText: 'Tóm tắt đơn hàng' }).getByText('Miễn phí', { exact: true }) with timeout 10000ms
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:16.2060000Z       - waiting for getByRole('complementary').filter({ hasText: 'Tóm tắt đơn hàng' }).getByText('Miễn phí', { exact: true })
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:16.3430000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:16.4800000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:16.6170000Z       17 |         summary.getByText("Đơn hàng của bạn được miễn phí giao hàng tiêu chuẩn"),
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:16.7540000Z       18 |       ).toBeVisible();
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:16.8910000Z     > 19 |       await expect(summary.getByText("Miễn phí", { exact: true })).toBeVisible();
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:17.0280000Z          |                                                                    ^
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:17.1650000Z       20 |       await expect(page.getByTestId("cart-total")).toHaveText("500.000 ₫");
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:17.3020000Z       21 |
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:17.4390000Z       22 |       // 2. Bấm "Tiến hành thanh toán" (giao tiêu chuẩn mặc định): cũng miễn phí, tổng 500.000đ
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:17.5760000Z         at /home/runner/work/shoplite/shoplite/e2e/gio-hang/mien-phi-dung-nguong.spec.ts:19:68
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:17.7130000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:17.8500000Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:17.9870000Z     test-results/gio-hang-mien-phi-dung-ngu-dfab0-iỏ-hàng-và-trang-thanh-toán-chromium/test-failed-1.png
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:18.1240000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:18.2610000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:18.3980000Z     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:18.5350000Z     test-results/gio-hang-mien-phi-dung-ngu-dfab0-iỏ-hàng-và-trang-thanh-toán-chromium/video.webm
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:18.6720000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:18.8090000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:18.9460000Z     Error Context: test-results/gio-hang-mien-phi-dung-ngu-dfab0-iỏ-hàng-và-trang-thanh-toán-chromium/error-context.md
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:19.0830000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:19.2200000Z     attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:19.3570000Z     test-results/gio-hang-mien-phi-dung-ngu-dfab0-iỏ-hàng-và-trang-thanh-toán-chromium/trace.zip
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:19.4940000Z     Usage:
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:19.6310000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:19.7680000Z         npx playwright show-trace test-results/gio-hang-mien-phi-dung-ngu-dfab0-iỏ-hàng-và-trang-thanh-toán-chromium/trace.zip
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:19.9050000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:20.0420000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:20.1790000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:20.3160000Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:20.4530000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:20.5900000Z     Error: expect(locator).toBeVisible() failed
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:20.7270000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:20.8640000Z     Locator: getByRole('complementary').filter({ hasText: 'Tóm tắt đơn hàng' }).getByText('Miễn phí', { exact: true })
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:21.0010000Z     Expected: visible
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:21.1380000Z     Timeout: 10000ms
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:21.2750000Z     Error: element(s) not found
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:21.4120000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:21.5490000Z     Call log:
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:21.6860000Z       - Expect "toBeVisible" getByRole('complementary').filter({ hasText: 'Tóm tắt đơn hàng' }).getByText('Miễn phí', { exact: true }) with timeout 10000ms
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:21.8230000Z       - waiting for getByRole('complementary').filter({ hasText: 'Tóm tắt đơn hàng' }).getByText('Miễn phí', { exact: true })
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:21.9600000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:22.0970000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:22.2340000Z       17 |         summary.getByText("Đơn hàng của bạn được miễn phí giao hàng tiêu chuẩn"),
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:22.3710000Z       18 |       ).toBeVisible();
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:22.5080000Z     > 19 |       await expect(summary.getByText("Miễn phí", { exact: true })).toBeVisible();
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:22.6450000Z          |                                                                    ^
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:22.7820000Z       20 |       await expect(page.getByTestId("cart-total")).toHaveText("500.000 ₫");
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:22.9190000Z       21 |
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:23.0560000Z       22 |       // 2. Bấm "Tiến hành thanh toán" (giao tiêu chuẩn mặc định): cũng miễn phí, tổng 500.000đ
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:23.1930000Z         at /home/runner/work/shoplite/shoplite/e2e/gio-hang/mien-phi-dung-nguong.spec.ts:19:68
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:23.3300000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:23.4670000Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:23.6040000Z     test-results/gio-hang-mien-phi-dung-ngu-dfab0-iỏ-hàng-và-trang-thanh-toán-chromium-retry1/test-failed-1.png
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:23.7410000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:23.8780000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:24.0150000Z     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:24.1520000Z     test-results/gio-hang-mien-phi-dung-ngu-dfab0-iỏ-hàng-và-trang-thanh-toán-chromium-retry1/video.webm
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:24.2890000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:24.4260000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:24.5630000Z     Error Context: test-results/gio-hang-mien-phi-dung-ngu-dfab0-iỏ-hàng-và-trang-thanh-toán-chromium-retry1/error-context.md
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:24.7000000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:24.8370000Z     attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:24.9740000Z     test-results/gio-hang-mien-phi-dung-ngu-dfab0-iỏ-hàng-và-trang-thanh-toán-chromium-retry1/trace.zip
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:25.1110000Z     Usage:
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:25.2480000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:25.3850000Z         npx playwright show-trace test-results/gio-hang-mien-phi-dung-ngu-dfab0-iỏ-hàng-và-trang-thanh-toán-chromium-retry1/trace.zip
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:25.5220000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:25.6590000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:25.7960000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:25.9330000Z   1 failed
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:26.0700000Z     [chromium] › e2e/gio-hang/mien-phi-dung-nguong.spec.ts:6:7 › Giỏ hàng và phí giao hàng › GH-4 đúng 500.000đ: miễn phí giao hàng ở giỏ hàng và trang thanh toán @GH-4 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:26.2070000Z   13 passed (35.2s)
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:26.3440000Z 
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:26.4810000Z === Kết quả gate ===
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:26.6180000Z ❌ e2e: do
+e2e	Gate e2e (Playwright, chạy lại 1 lần, chập chờn vẫn tính là đỏ)	2026-10-23T14:02:26.7550000Z ##[error]Process completed with exit code 1.

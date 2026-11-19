@@ -1,0 +1,10 @@
+# .github/CODEOWNERS (tùy chọn, bài 7.5) - PR sửa các file dưới đây cần chủ sở hữu duyệt.
+# Đây là các file chỉ dẫn cho AI và luật của CI: sửa chúng là sửa cách review chính PR đó [AT-2].
+# Thay @ten-ban, @ten-ban-cung-cap bằng tên GitHub của hai bạn. Muốn bắt buộc: bật require_code_owner_review
+# trong ruleset-main.json.
+/.github/        @ten-ban @ten-ban-cung-cap
+/scripts/ci/     @ten-ban @ten-ban-cung-cap
+/.claude/        @ten-ban @ten-ban-cung-cap
+/_bmad/          @ten-ban @ten-ban-cung-cap
+/AGENTS.md       @ten-ban @ten-ban-cung-cap
+/CLAUDE.md       @ten-ban @ten-ban-cung-cap

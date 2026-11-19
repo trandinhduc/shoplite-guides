@@ -1,0 +1,85 @@
+# Module 8: AI viết nháp release note, job khác (không gọi AI) tạo GitHub Release dạng nháp để người công bố.
+name: Release notes
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag mới, ví dụ v0.2.0
+        required: true
+  schedule:
+    - cron: "45 1 * * 1" # 08:45 thứ Hai giờ Việt Nam (GitHub dùng UTC)
+
+permissions: {}
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  viet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      ket-qua: ${{ steps.ai.outputs.structured_output }}
+      tag: ${{ steps.gom.outputs.moi }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Gom PR, chép skill (tất định, không gọi AI, không cầm khoá)
+        id: gom
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAG_NHAP: ${{ inputs.tag }}
+        run: |
+          MOI="${TAG_NHAP:-HEAD}"
+          CU=$(git describe --tags --abbrev=0 "${MOI}^")
+          mkdir -p .ci ~/.claude/skills
+          node .claude/skills/release-notes/scripts/lay-pr.mjs "$MOI" "$CU" > .ci/pr.json
+          cp -R .claude/skills/release-notes ~/.claude/skills/
+          echo "moi=$MOI" >> "$GITHUB_OUTPUT"
+          echo "cu=$CU" >> "$GITHUB_OUTPUT"
+      - name: Claude viết nháp
+        id: ai
+        uses: anthropics/claude-code-action@ae68417a745a5df4b2124873632bd73a2255e6f6 # v1.0.259
+        env:
+          CA_THU_DAU_VAO: .ci/pr.json
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: /release-notes ${{ steps.gom.outputs.moi }} ${{ steps.gom.outputs.cu }}
+          claude_args: |
+            --model sonnet
+            --permission-mode dontAsk
+            --max-turns 6
+            --max-budget-usd 0.30
+            --allowedTools "Bash(node .claude/skills/release-notes/scripts/lay-pr.mjs *),Read"
+            --disallowedTools "Edit,Write,NotebookEdit,WebFetch,WebSearch,Agent,Read(./.git/**)"
+            --setting-sources user
+            --strict-mcp-config
+            --json-schema '{"type":"object","required":["release_note"],"properties":{"release_note":{"type":"string"}}}'
+
+  dang:
+    needs: viet
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: write
+    steps:
+      - name: Tạo Release nháp (không gọi AI, không cầm khoá)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          KET_QUA: ${{ needs.viet.outputs.ket-qua }}
+          TAG: ${{ needs.viet.outputs.tag }}
+        run: |
+          printf '%s' "$KET_QUA" | jq -e -r '.release_note' > release-notes.md
+          T="$TAG"
+          [ "$T" = "HEAD" ] && T="nhap-tuan-nay"
+          gh release edit "$T" --repo "$GITHUB_REPOSITORY" --notes-file release-notes.md \
+            || gh release create "$T" --repo "$GITHUB_REPOSITORY" --draft --target "$GITHUB_SHA" \
+                 --title "ShopLite $T" --notes-file release-notes.md

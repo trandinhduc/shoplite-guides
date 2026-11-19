@@ -1,0 +1,26 @@
+diff --git a/e2e/gio-hang/mien-phi-dung-nguong.spec.ts b/e2e/gio-hang/mien-phi-dung-nguong.spec.ts
+--- a/e2e/gio-hang/mien-phi-dung-nguong.spec.ts
++++ b/e2e/gio-hang/mien-phi-dung-nguong.spec.ts
+@@ -19,8 +19,8 @@ test.describe("Giỏ hàng và phí giao hàng", () => {
+       await expect(summary.getByText("Miễn phí", { exact: true })).toBeVisible();
+       await expect(page.getByTestId("cart-total")).toHaveText("500.000 ₫");
+ 
+-      // 2. Bấm "Tiến hành thanh toán" (giao tiêu chuẩn mặc định): cũng miễn phí, tổng 500.000đ
+-      await page.getByRole("link", { name: "Tiến hành thanh toán" }).click();
++      // 2. Bấm "Thanh toán ngay" (giao tiêu chuẩn mặc định): cũng miễn phí, tổng 500.000đ
++      await page.getByRole("link", { name: "Thanh toán ngay" }).click();
+       await expect(page.getByTestId("shipping-fee")).toHaveText("Miễn phí");
+       await expect(page.getByTestId("checkout-total")).toHaveText("500.000 ₫");
+     },
+diff --git a/e2e/shopping-flow.spec.ts b/e2e/shopping-flow.spec.ts
+--- a/e2e/shopping-flow.spec.ts
++++ b/e2e/shopping-flow.spec.ts
+@@ -21,7 +21,7 @@ test("khách hàng tìm sản phẩm, thêm vào giỏ và đặt hàng thành c
+   // Giỏ hàng: 2 x 450.000đ = 900.000đ, miễn phí giao hàng
+   await page.getByRole("link", { name: /Giỏ hàng/ }).click();
+   await expect(page.getByTestId("cart-total")).toContainText("900.000");
+-  await page.getByRole("link", { name: "Tiến hành thanh toán" }).click();
++  await page.getByRole("link", { name: "Thanh toán ngay" }).click();
+ 
+   // Thanh toán
+   await page.getByLabel(/Họ và tên/).fill("Nguyễn Văn Test");

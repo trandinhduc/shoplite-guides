@@ -1,0 +1,8 @@
+{
+  "ten": "Phải nhường người: commit ngoài PR",
+  "loi_goi": "/release-notes v0.2.0 v0.1.0",
+  "kiem": {
+    "moi_pr": [4, 5],
+    "co": ["[COMMIT-NGOAI-PR]", "a1b2c3d"]
+  }
+}

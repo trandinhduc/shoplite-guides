@@ -1,0 +1,26 @@
+{
+  "cong_cu": "claude",
+  "co": [
+    "--model",
+    "sonnet",
+    "--output-format",
+    "json",
+    "--permission-mode",
+    "dontAsk",
+    "--setting-sources",
+    "project",
+    "--strict-mcp-config",
+    "--tools",
+    "Bash,Read",
+    "--allowedTools",
+    "Bash(node .claude/skills/release-notes/scripts/lay-pr.mjs *)",
+    "--disallowedTools",
+    "Bash(npm *)",
+    "Bash(npx *)",
+    "Bash(git branch *)",
+    "--max-turns",
+    "6",
+    "--max-budget-usd",
+    "0.30"
+  ]
+}

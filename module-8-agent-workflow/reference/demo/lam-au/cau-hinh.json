@@ -1,0 +1,4 @@
+{
+  "cong_cu": "claude",
+  "co": ["--model", "sonnet", "--output-format", "json", "--permission-mode", "auto"]
+}

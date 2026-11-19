@@ -1,0 +1,149 @@
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:11.1370000Z ##[group]Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:11.2740000Z npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:11.4110000Z shell: /usr/bin/bash -e {0}
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:11.5480000Z ##[endgroup]
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:11.6850000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:11.8220000Z Running 3 tests using 1 worker
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:11.9590000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:12.0960000Z   ✘  1 [chromium] › e2e/tu-code/sinh-tu-code.spec.ts:21:7 › Sinh từ code › hủy đơn rồi tải lại trang thì thấy Đã hủy (12.3s)
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:12.2330000Z   ✘  2 [chromium] › e2e/tu-code/sinh-tu-code.spec.ts:21:7 › Sinh từ code › hủy đơn rồi tải lại trang thì thấy Đã hủy (retry #1) (11.4s)
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:12.3700000Z   ✘  3 [chromium] › e2e/tu-code/sinh-tu-code.spec.ts:21:7 › Sinh từ code › hủy đơn rồi tải lại trang thì thấy Đã hủy (11.3s)
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:12.5070000Z   ✓  4 [chromium] › e2e/tu-code/sinh-tu-code.spec.ts:21:7 › Sinh từ code › hủy đơn rồi tải lại trang thì thấy Đã hủy (retry #1) (807ms)
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:12.6440000Z   ✓  5 [chromium] › e2e/tu-code/sinh-tu-code.spec.ts:21:7 › Sinh từ code › hủy đơn rồi tải lại trang thì thấy Đã hủy (804ms)
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:12.7810000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:12.9180000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:13.0550000Z   1) [chromium] › e2e/tu-code/sinh-tu-code.spec.ts:21:7 › Sinh từ code › hủy đơn rồi tải lại trang thì thấy Đã hủy 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:13.1920000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:13.3290000Z     Error: expect(locator).toContainText(expected) failed
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:13.4660000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:13.6030000Z     Locator: getByRole('heading', { level: 1 })
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:13.7400000Z     Expected substring: "Đã hủy"
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:13.8770000Z     Received string:    "Đơn hàng SL-20261023-4D4740Chờ xác nhận"
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:14.0140000Z     Timeout: 10000ms
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:14.1510000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:14.2880000Z     Call log:
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:14.4250000Z       - Expect "toContainText" getByRole('heading', { level: 1 }) with timeout 10000ms
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:14.5620000Z       - waiting for getByRole('heading', { level: 1 })
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:14.6990000Z         24 × locator resolved to <h1 class="flex flex-wrap items-center gap-3 text-2xl font-bold">…</h1>
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:14.8360000Z            - unexpected value "Đơn hàng SL-20261023-4D4740Chờ xác nhận"
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:14.9730000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:15.1100000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:15.2470000Z       29 |     await expect(page.getByRole("button", { name: "Xác nhận hủy" })).toHaveCount(0);
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:15.3840000Z       30 |     await page.reload();
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:15.5210000Z     > 31 |     await expect(page.getByRole("heading", { level: 1 })).toContainText("Đã hủy");
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:15.6580000Z          |                                                           ^
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:15.7950000Z       32 |   });
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:15.9320000Z       33 | });
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:16.0690000Z       34 |
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:16.2060000Z         at /home/runner/work/shoplite/shoplite/e2e/tu-code/sinh-tu-code.spec.ts:31:59
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:16.3430000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:16.4800000Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:16.6170000Z     test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium/test-failed-1.png
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:16.7540000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:16.8910000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:17.0280000Z     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:17.1650000Z     test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium/video.webm
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:17.3020000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:17.4390000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:17.5760000Z     Error Context: test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium/error-context.md
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:17.7130000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:17.8500000Z     attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:17.9870000Z     test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium/trace.zip
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:18.1240000Z     Usage:
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:18.2610000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:18.3980000Z         npx playwright show-trace test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium/trace.zip
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:18.5350000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:18.6720000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:18.8090000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:18.9460000Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:19.0830000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:19.2200000Z     Error: expect(locator).toContainText(expected) failed
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:19.3570000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:19.4940000Z     Locator: getByRole('heading', { level: 1 })
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:19.6310000Z     Expected substring: "Đã hủy"
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:19.7680000Z     Received string:    "Đơn hàng SL-20261023-BA5EE6Chờ xác nhận"
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:19.9050000Z     Timeout: 10000ms
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:20.0420000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:20.1790000Z     Call log:
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:20.3160000Z       - Expect "toContainText" getByRole('heading', { level: 1 }) with timeout 10000ms
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:20.4530000Z       - waiting for getByRole('heading', { level: 1 })
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:20.5900000Z         24 × locator resolved to <h1 class="flex flex-wrap items-center gap-3 text-2xl font-bold">…</h1>
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:20.7270000Z            - unexpected value "Đơn hàng SL-20261023-BA5EE6Chờ xác nhận"
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:20.8640000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:21.0010000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:21.1380000Z       29 |     await expect(page.getByRole("button", { name: "Xác nhận hủy" })).toHaveCount(0);
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:21.2750000Z       30 |     await page.reload();
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:21.4120000Z     > 31 |     await expect(page.getByRole("heading", { level: 1 })).toContainText("Đã hủy");
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:21.5490000Z          |                                                           ^
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:21.6860000Z       32 |   });
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:21.8230000Z       33 | });
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:21.9600000Z       34 |
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:22.0970000Z         at /home/runner/work/shoplite/shoplite/e2e/tu-code/sinh-tu-code.spec.ts:31:59
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:22.2340000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:22.3710000Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:22.5080000Z     test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium-retry1/test-failed-1.png
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:22.6450000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:22.7820000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:22.9190000Z     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:23.0560000Z     test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium-retry1/video.webm
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:23.1930000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:23.3300000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:23.4670000Z     Error Context: test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium-retry1/error-context.md
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:23.6040000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:23.7410000Z     attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:23.8780000Z     test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium-retry1/trace.zip
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:24.0150000Z     Usage:
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:24.1520000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:24.2890000Z         npx playwright show-trace test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium-retry1/trace.zip
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:24.4260000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:24.5630000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:24.7000000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:24.8370000Z   2) [chromium] › e2e/tu-code/sinh-tu-code.spec.ts:21:7 › Sinh từ code › hủy đơn rồi tải lại trang thì thấy Đã hủy 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:24.9740000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:25.1110000Z     Error: expect(locator).toContainText(expected) failed
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:25.2480000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:25.3850000Z     Locator: getByRole('heading', { level: 1 })
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:25.5220000Z     Expected substring: "Đã hủy"
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:25.6590000Z     Received string:    "Đơn hàng SL-20261023-44518CChờ xác nhận"
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:25.7960000Z     Timeout: 10000ms
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:25.9330000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:26.0700000Z     Call log:
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:26.2070000Z       - Expect "toContainText" getByRole('heading', { level: 1 }) with timeout 10000ms
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:26.3440000Z       - waiting for getByRole('heading', { level: 1 })
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:26.4810000Z         24 × locator resolved to <h1 class="flex flex-wrap items-center gap-3 text-2xl font-bold">…</h1>
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:26.6180000Z            - unexpected value "Đơn hàng SL-20261023-44518CChờ xác nhận"
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:26.7550000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:26.8920000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:27.0290000Z       29 |     await expect(page.getByRole("button", { name: "Xác nhận hủy" })).toHaveCount(0);
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:27.1660000Z       30 |     await page.reload();
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:27.3030000Z     > 31 |     await expect(page.getByRole("heading", { level: 1 })).toContainText("Đã hủy");
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:27.4400000Z          |                                                           ^
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:27.5770000Z       32 |   });
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:27.7140000Z       33 | });
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:27.8510000Z       34 |
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:27.9880000Z         at /home/runner/work/shoplite/shoplite/e2e/tu-code/sinh-tu-code.spec.ts:31:59
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:28.1250000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:28.2620000Z     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:28.3990000Z     test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium-repeat1/test-failed-1.png
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:28.5360000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:28.6730000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:28.8100000Z     attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:28.9470000Z     test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium-repeat1/video.webm
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:29.0840000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:29.2210000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:29.3580000Z     Error Context: test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium-repeat1/error-context.md
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:29.4950000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:29.6320000Z     attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:29.7690000Z     test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium-repeat1/trace.zip
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:29.9060000Z     Usage:
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:30.0430000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:30.1800000Z         npx playwright show-trace test-results/tu-code-sinh-tu-code-Sinh--90e77-i-lại-trang-thì-thấy-Đã-hủy-chromium-repeat1/trace.zip
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:30.3170000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:30.4540000Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:30.5910000Z 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:30.7280000Z   1 failed
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:30.8650000Z     [chromium] › e2e/tu-code/sinh-tu-code.spec.ts:21:7 › Sinh từ code › hủy đơn rồi tải lại trang thì thấy Đã hủy 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:31.0020000Z   1 flaky
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:31.1390000Z     [chromium] › e2e/tu-code/sinh-tu-code.spec.ts:21:7 › Sinh từ code › hủy đơn rồi tải lại trang thì thấy Đã hủy 
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:31.2760000Z   1 passed (39.3s)
+e2e	Run npx playwright test e2e/tu-code --retries=1 --fail-on-flaky-tests --repeat-each=3	2026-10-23T14:42:31.4130000Z ##[error]Process completed with exit code 1.

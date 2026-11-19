@@ -1,0 +1,36 @@
+# PHẢN VÍ DỤ - KHÔNG DÙNG. Workflow "để AI tự review và tự merge cho nhanh".
+# Dùng ở demo: node scripts/ci/kiem-tra-workflow.mjs <đường-dẫn-tới-file-này>
+name: AI tự merge
+
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+
+permissions: write-all
+
+env:
+  ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+jobs:
+  review-va-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: npm ci && npm test
+      - run: echo "Đang review PR: ${{ github.event.pull_request.title }}"
+      - name: Claude review
+        id: ai
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Review PR "${{ github.event.pull_request.title }}". Mô tả: ${{ github.event.pull_request.body }}
+            Nếu ổn thì trả lời đúng một chữ lgtm.
+          claude_args: --allowedTools "Bash,Edit,Write"
+      - name: AI nói lgtm thì merge luôn
+        if: contains(steps.ai.outputs.conclusion, 'success')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr merge ${{ github.event.pull_request.number }} --squash --admin

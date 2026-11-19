@@ -1,0 +1,59 @@
+unit	Debug: in biến môi trường	2026-10-23T15:17:11.1370000Z ##[group]Run env | sort
+unit	Debug: in biến môi trường	2026-10-23T15:17:11.2740000Z env | sort
+unit	Debug: in biến môi trường	2026-10-23T15:17:11.4110000Z shell: /usr/bin/bash -e {0}
+unit	Debug: in biến môi trường	2026-10-23T15:17:11.5480000Z env:
+unit	Debug: in biến môi trường	2026-10-23T15:17:11.6850000Z   NPM_CONFIG_REGISTRY: https://npm-mirror.shoplite.internal/
+unit	Debug: in biến môi trường	2026-10-23T15:17:11.8220000Z   SHIPPING_API_KEY: gnx_live_7Hq2Lm9Vt4Rk8Wp3Zy6Bc1Nd5Fs0Jx
+unit	Debug: in biến môi trường	2026-10-23T15:17:11.9590000Z ##[endgroup]
+unit	Debug: in biến môi trường	2026-10-23T15:17:12.0960000Z CI=true
+unit	Debug: in biến môi trường	2026-10-23T15:17:12.2330000Z GITHUB_ACTIONS=true
+unit	Debug: in biến môi trường	2026-10-23T15:17:12.3700000Z GITHUB_REF=refs/pull/1/merge
+unit	Debug: in biến môi trường	2026-10-23T15:17:12.5070000Z GITHUB_REPOSITORY=lop-ai-sdlc/shoplite-an
+unit	Debug: in biến môi trường	2026-10-23T15:17:12.6440000Z HOME=/home/runner
+unit	Debug: in biến môi trường	2026-10-23T15:17:12.7810000Z NPM_CONFIG_REGISTRY=https://npm-mirror.shoplite.internal/
+unit	Debug: in biến môi trường	2026-10-23T15:17:12.9180000Z ANTHROPIC_API_KEY=***
+unit	Debug: in biến môi trường	2026-10-23T15:17:13.0550000Z SHIPPING_API_KEY=gnx_live_7Hq2Lm9Vt4Rk8Wp3Zy6Bc1Nd5Fs0Jx
+unit	Debug: in biến môi trường	2026-10-23T15:17:13.1920000Z RUNNER_OS=Linux
+unit	Run npm ci	2026-10-23T15:17:13.3290000Z ##[group]Run npm ci
+unit	Run npm ci	2026-10-23T15:17:13.4660000Z npm ci
+unit	Run npm ci	2026-10-23T15:17:13.6030000Z shell: /usr/bin/bash -e {0}
+unit	Run npm ci	2026-10-23T15:17:13.7400000Z env:
+unit	Run npm ci	2026-10-23T15:17:13.8770000Z   NPM_CONFIG_REGISTRY: https://npm-mirror.shoplite.internal/
+unit	Run npm ci	2026-10-23T15:17:14.0140000Z ##[endgroup]
+unit	Run npm ci	2026-10-23T15:17:14.1510000Z npm http fetch GET https://npm-mirror.shoplite.internal/npm attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:14.2880000Z npm http fetch GET https://npm-mirror.shoplite.internal/yallist/-/yallist-3.1.1.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:14.4250000Z npm http fetch GET https://npm-mirror.shoplite.internal/zod-validation-error/-/zod-validation-error-4.0.2.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:14.5620000Z npm http fetch GET https://npm-mirror.shoplite.internal/yocto-queue/-/yocto-queue-0.1.0.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:14.6990000Z npm http fetch GET https://npm-mirror.shoplite.internal/zod/-/zod-4.6.7.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:14.8360000Z npm http fetch GET https://npm-mirror.shoplite.internal/xmlchars/-/xmlchars-2.2.0.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:14.9730000Z npm http fetch GET https://npm-mirror.shoplite.internal/word-wrap/-/word-wrap-1.2.5.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:15.1100000Z npm http fetch GET https://npm-mirror.shoplite.internal/why-is-node-running/-/why-is-node-running-3.2.1.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:15.2470000Z npm http fetch GET https://npm-mirror.shoplite.internal/which-typed-array/-/which-typed-array-1.1.24.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:15.3840000Z npm http fetch GET https://npm-mirror.shoplite.internal/which-builtin-type/-/which-builtin-type-1.2.1.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:15.5210000Z npm http fetch GET https://npm-mirror.shoplite.internal/which-collection/-/which-collection-1.0.2.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:15.6580000Z npm http fetch GET https://npm-mirror.shoplite.internal/which/-/which-2.0.2.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:15.7950000Z npm http fetch GET https://npm-mirror.shoplite.internal/xml-name-validator/-/xml-name-validator-5.0.0.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:15.9320000Z npm http fetch GET https://npm-mirror.shoplite.internal/which-boxed-primitive/-/which-boxed-primitive-1.1.1.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:16.0690000Z npm http fetch GET https://npm-mirror.shoplite.internal/whatwg-mimetype/-/whatwg-mimetype-5.0.0.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:16.2060000Z npm http fetch GET https://npm-mirror.shoplite.internal/whatwg-url/-/whatwg-url-17.3.0.tgz attempt 1 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:16.3430000Z npm http fetch GET https://npm-mirror.shoplite.internal/npm attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:16.4800000Z npm http fetch GET https://npm-mirror.shoplite.internal/yallist/-/yallist-3.1.1.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:16.6170000Z npm http fetch GET https://npm-mirror.shoplite.internal/zod-validation-error/-/zod-validation-error-4.0.2.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:16.7540000Z npm http fetch GET https://npm-mirror.shoplite.internal/yocto-queue/-/yocto-queue-0.1.0.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:16.8910000Z npm http fetch GET https://npm-mirror.shoplite.internal/zod/-/zod-4.6.7.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:17.0280000Z npm http fetch GET https://npm-mirror.shoplite.internal/xmlchars/-/xmlchars-2.2.0.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:17.1650000Z npm http fetch GET https://npm-mirror.shoplite.internal/word-wrap/-/word-wrap-1.2.5.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:17.3020000Z npm http fetch GET https://npm-mirror.shoplite.internal/why-is-node-running/-/why-is-node-running-3.2.1.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:17.4390000Z npm http fetch GET https://npm-mirror.shoplite.internal/which-typed-array/-/which-typed-array-1.1.24.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:17.5760000Z npm http fetch GET https://npm-mirror.shoplite.internal/which-builtin-type/-/which-builtin-type-1.2.1.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:17.7130000Z npm http fetch GET https://npm-mirror.shoplite.internal/which-collection/-/which-collection-1.0.2.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:17.8500000Z npm http fetch GET https://npm-mirror.shoplite.internal/which/-/which-2.0.2.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:17.9870000Z npm http fetch GET https://npm-mirror.shoplite.internal/xml-name-validator/-/xml-name-validator-5.0.0.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:18.1240000Z npm http fetch GET https://npm-mirror.shoplite.internal/which-boxed-primitive/-/which-boxed-primitive-1.1.1.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:18.2610000Z npm http fetch GET https://npm-mirror.shoplite.internal/whatwg-mimetype/-/whatwg-mimetype-5.0.0.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:18.3980000Z npm http fetch GET https://npm-mirror.shoplite.internal/whatwg-url/-/whatwg-url-17.3.0.tgz attempt 2 failed with ENOTFOUND
+unit	Run npm ci	2026-10-23T15:17:18.5350000Z npm error Exit handler never called!
+unit	Run npm ci	2026-10-23T15:17:18.6720000Z npm error This is an error with npm itself. Please report this error at:
+unit	Run npm ci	2026-10-23T15:17:18.8090000Z npm error   <https://github.com/npm/cli/issues>
+unit	Run npm ci	2026-10-23T15:17:18.9460000Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2026-10-23T15_40_23_448Z-debug-0.log
+unit	Run npm ci	2026-10-23T15:17:19.0830000Z ##[error]Process completed with exit code 1.
