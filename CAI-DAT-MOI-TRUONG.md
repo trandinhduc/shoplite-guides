@@ -42,7 +42,7 @@ Phiên bản trong bảng là bản **đã ghim trong lab**. Hãy cài đúng b�
 | **2** | **04** · BMAD từ ý tưởng đến backlog | ~215 phút | **BMAD 6.12.4** | ShopLite · `lab4-bmad` |
 | **2** | **05** · BMAD từ Story đến AI review code | 145 phút | BMAD 6.12.4, **model thứ hai** để review, Vitest | ShopLite Ops · Sprint 1 |
 | **3** | **06** · Test tự động với Playwright và AI | 200 phút | **Playwright 1.64** (planner, generator, healer) | ShopLite · `lab6-e2e` |
-| **3** | **07** · CI/CD có AI hỗ trợ | 200 phút | GitHub Actions, claude-code-action, gitleaks 8.30.1 | ShopLite · PR trên GitHub |
+| **3** | **07** · CI/CD có AI hỗ trợ | 218 phút | GitHub Actions, claude-code-action, gitleaks 8.30.1 | ShopLite · PR trên GitHub |
 | **3** | **08** · Agent và workflow tự động | 120 phút | Claude Code 2.1.319+ (skill, subagent, MCP, hook), chạy không người | ShopLite |
 
 > Dự án xuyên suốt là **ShopLite (Next.js 16)**, dùng từ Module 2 tới Module 8. Giảng viên phát repo và gói lab trước mỗi module, bạn không cần tải trước.
