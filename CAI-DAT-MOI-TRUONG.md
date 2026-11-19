@@ -81,7 +81,7 @@ Phiên bản trong bảng là bản **đã ghim trong lab**. Hãy cài đúng b�
 | 10 | Agent thứ hai (Gemini CLI / Claude Code / Codex CLI) | ✅ | 5 |
 | 11 | gitleaks 8.30.1 | Không bắt buộc | 7 |
 | 12 | VS Code (hoặc editor bạn quen) | Khuyên dùng | Tất cả |
-| 13 | Docker (Docker Desktop, colima hoặc Docker Engine) và image runner của lớp | Khuyên dùng | 7 |
+| 13 | Phần mềm chạy container (Rancher Desktop, Docker Engine trong WSL2, hoặc colima; không cần Docker Desktop) và image runner của lớp | Khuyên dùng | 7 |
 
 ---
 
@@ -440,15 +440,89 @@ Trình duyệt được lưu ở:
 | macOS | `brew install gitleaks` |
 | Windows / Linux | Tải bản **v8.30.1** ở https://github.com/gitleaks/gitleaks/releases, giải nén, đặt file chạy vào thư mục có trong PATH |
 
-### 5.3. Docker và image runner (Module 7, khuyên dùng)
+### 5.3. Phần mềm chạy container và image runner (Module 7, khuyên dùng)
 
-Ở Module 7, job AI review chạy trong một **runner bạn dựng bằng Docker** trên máy mình. Không có Docker thì job đó chạy trên máy của GitHub, bạn vẫn làm được lab.
+Ở Module 7, job AI review chạy trong một **runner bạn dựng bằng container** trên máy mình. Không chạy được container thì job đó chạy trên máy của GitHub, bạn vẫn làm được lab.
+
+Lab chỉ cần lệnh `docker` chạy được container Linux. **Không cần Docker Desktop.** Docker Desktop đòi gói trả tiền khi dùng cho công việc ở tổ chức từ 250 nhân viên trở lên hoặc doanh thu từ 10 triệu USD mỗi năm, và ở cơ quan nhà nước; nó miễn phí cho cá nhân, giáo dục và doanh nghiệp nhỏ hơn hai ngưỡng đó. Các lựa chọn dưới đây là mã nguồn mở, dùng ở công ty không cần mua giấy phép:
+
+| Môi trường của bạn (mục 3.4) | Dùng | Giấy phép |
+|---|---|---|
+| **Windows gốc** (PowerShell, Git Bash) | **Rancher Desktop**, chọn engine `dockerd (moby)` | Apache-2.0 |
+| **WSL2** (Ubuntu) | **Docker Engine** cài trong Ubuntu của WSL2 | Apache-2.0 |
+| **macOS** | **colima** (hoặc Rancher Desktop) | MIT |
+| **Linux** | **Docker Engine** | Apache-2.0 |
+
+Đã cài sẵn Docker Desktop và tổ chức của bạn có giấy phép (hoặc thuộc diện miễn phí) thì dùng luôn, bỏ qua phần cài đặt bên dưới.
+
+> ⚠️ Lab đã chạy thử trọn bài với **colima trên macOS (chip Apple)**. Image cũng đã build và kiểm công cụ trên Docker Engine, Linux x64 (máy của GitHub). Rancher Desktop trên Windows và Docker Engine trong WSL2 viết theo tài liệu chính thức, **chưa chạy thử**: báo trợ giảng nếu có bước không khớp.
+
+#### A. Windows gốc: Rancher Desktop
+
+Cần Windows 11 đã cập nhật, máy bật ảo hóa, và **WSL đã cài trước** (`wsl --install` trong PowerShell quyền admin, rồi khởi động lại). Nên có 8 GB RAM và 4 CPU.
+
+1. Tải file `Rancher.Desktop.Setup.X.Y.Z.msi` ở <https://github.com/rancher-sandbox/rancher-desktop/releases> (bản khi soạn bài: 1.25.0) và chạy. Chọn cài cho mọi người dùng nếu được hỏi.
+2. Mở Rancher Desktop. Trong **Preferences › Container Engine › General** chọn **dockerd (moby)**: lựa chọn này mới cho lệnh `docker`. (Lựa chọn còn lại, `containerd`, dùng lệnh `nerdctl`, lab không dùng.)
+3. Trong **Preferences › Kubernetes** bỏ tick **Enable Kubernetes**: lab không cần Kubernetes, tắt đi cho nhẹ máy. Ứng dụng tự khởi động lại.
+4. Mở một cửa sổ **Git Bash mới** và kiểm tra ở mục "Kiểm tra" bên dưới.
+
+Máy Windows 10, hoặc không cài được Rancher Desktop: cài Ubuntu trong WSL2 rồi làm theo mục B. Khi đó phần runner của bài 7.3 gõ trong cửa sổ Ubuntu, phần còn lại của lab vẫn gõ trong Git Bash (bài 7.3 có ghi rõ).
+
+#### B. WSL2 hoặc Linux: Docker Engine
+
+Gõ trong Ubuntu (22.04, 24.04 hoặc mới hơn). Trên Windows: đây là cửa sổ Ubuntu của WSL2, không phải PowerShell.
 
 ```bash
+# Kho apt chính thức của Docker
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+sudo apt update
+
+# Cài Docker Engine, cho user của bạn dùng docker không cần sudo
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin
+sudo usermod -aG docker $USER
+newgrp docker                        # hoặc đóng rồi mở lại cửa sổ Ubuntu
+sudo systemctl enable --now docker.service
+```
+
+Riêng với WSL2:
+
+- `systemctl` báo lỗi nghĩa là bản Ubuntu của bạn chưa bật systemd (Ubuntu cài bằng `wsl --install` gần đây đã bật sẵn). Thêm hai dòng `[boot]` và `systemd=true` vào `/etc/wsl.conf`, chạy `wsl.exe --shutdown` trong PowerShell, rồi mở lại Ubuntu.
+- **Giữ một cửa sổ Ubuntu mở trong suốt giờ lab.** Dịch vụ systemd không giữ cho WSL sống: khi không còn cửa sổ nào mở, WSL có thể tắt bản Ubuntu dù Docker đang chạy; runner tắt theo và job AI review đứng ở "Queued".
+- Đã có Docker Desktop bật "WSL integration" cho bản Ubuntu này thì đừng cài thêm Docker Engine: hai bên dễ xung đột lệnh `docker`.
+
+Nhóm `docker` cho user quyền ngang root trên máy đó. Với máy cá nhân dùng cho lab thì chấp nhận được.
+
+#### C. macOS: colima
+
+```bash
+brew install colima docker
+colima start                         # chạy lại lệnh này sau mỗi lần khởi động máy
+```
+
+Muốn dùng Rancher Desktop trên macOS (13 trở lên): tải file `.dmg` ở trang releases ở mục A, rồi làm bước 2 và 3 của mục A.
+
+#### Kiểm tra (mọi môi trường)
+
+```bash
+docker version                       # có cả phần Client và phần Server
 docker run --rm hello-world          # phải in "Hello from Docker!"
 ```
 
-Image của runner nặng khoảng **3,5 GB**, build mất 10-15 phút: **build ở nhà**, đừng build trên Wi-Fi của lớp. Giảng viên phát file `Dockerfile` cùng gói lab Module 7 (`module-7-cicd-ai/reference/runner/`):
+#### Build image runner ở nhà
+
+Image nặng **3,5 GB (máy ARM64) tới 3,9 GB (máy x64)**, build mất 10-15 phút với mạng nhà: **build ở nhà**, đừng build trên Wi-Fi của lớp. Giảng viên phát file `Dockerfile` cùng gói lab Module 7 (`module-7-cicd-ai/reference/runner/`). Người dùng WSL2 có gói lab nằm trên ổ Windows thì đường dẫn có dạng `/mnt/c/ai-sdlc/lab-guides/module-7-cicd-ai/reference/runner`.
 
 ```bash
 docker build -t shoplite-runner <thư mục chứa Dockerfile>
@@ -606,7 +680,7 @@ Tick hết trước buổi học đầu tiên:
 - [ ] Đã chạy `npm cache add bmad-method@6.12.4`
 - [ ] Đã tải Chromium cho Playwright 1.64.0
 - [ ] Có model thứ hai cho Module 5
-- [ ] (Module 7, nếu máy chạy được Docker) `docker images shoplite-runner` có image đã build
+- [ ] (Module 7, nếu máy chạy được container) `docker run --rm hello-world` chạy được và `docker images shoplite-runner` có image đã build
 
 **Kiểm tra**
 - [ ] `node kiem-tra-moi-truong.mjs` không còn dòng `[LỖI ]`

@@ -169,7 +169,7 @@ PR merge. Hai tag `v0.1.0`, `v0.2.0` gắn trên `main` để agent mẫu `relea
 | BMAD Method          | 6.12.4    | `npx bmad-method@6.12.4 install`; cần **uv** (Python 3.11+ do uv tự tải) |
 | Playwright           | 1.64.x    | Có sẵn trong `devDependencies`; `npx playwright init-agents --loop=claude` |
 | claude-code-action   | v1.0.259  | Ghim theo SHA `ae68417a…` (Claude Code 2.1.309 bên trong); 4 tham số `claude_code_oauth_token` (token của `claude setup-token`; dùng khoá API thì `anthropic_api_key`), `github_token`, `prompt`, `claude_args` |
-| Runner cho job AI review | actions-runner 2.338.2 | Image của lớp: `module-7-cicd-ai/reference/runner/Dockerfile` (Node 22.23.5, `gh`, Claude Code 2.1.309, Bun 1.3.14). Cần Docker; không có thì job chạy trên máy của GitHub |
+| Runner cho job AI review | actions-runner 2.338.2 | Image của lớp: `module-7-cicd-ai/reference/runner/Dockerfile` (Node 22.23.5, `gh`, Claude Code 2.1.309, Bun 1.3.14). Cần một phần mềm chạy container: Rancher Desktop, Docker Engine trong WSL2 hoặc colima (không cần Docker Desktop, xem `CAI-DAT-MOI-TRUONG.md` mục 5.3); không có thì job chạy trên máy của GitHub |
 | gitleaks             | 8.30.1    | CLI, tải từ GitHub Releases và kiểm sha256 trong workflow                |
 | GitHub CLI (`gh`)    | 2.x       | `gh auth login`; tạo repo, secret, PR, ruleset từ terminal                |
 | Claude Code (Module 8) | 2.1.319 | `claude -p` với `--permission-mode dontAsk`; kiểm ngày 06/11/2026        |
