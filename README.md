@@ -84,9 +84,9 @@ FEATURE-BACKLOG trở thành ví dụ test chập chờn do app ở bài 6.3.
 | Bài          | Nội dung                                                                                         | Thời lượng | File                                                                                                   |
 | ------------ | ------------------------------------------------------------------------------------------------ | ---------- | ------------------------------------------------------------------------------------------------------ |
 | **Module 7** | **CI/CD có AI hỗ trợ** - PR "Gợi ý tìm kiếm" (story 7.1) của một đồng nghiệp, có lỗi cài sẵn       |            | Slide: _Module 7 – CI/CD có AI hỗ trợ_                                                                 |
-| 7.1          | Đưa ShopLite lên GitHub; `ci.yml` với 4 gate: lint, unit, e2e, bao-mat (gitleaks + npm audit)      | 35'        | [module-7-cicd-ai/7.1-dua-len-github-4-gate.md](module-7-cicd-ai/7.1-dua-len-github-4-gate.md)         |
+| 7.1          | Fork repo mẫu về tài khoản của bạn, token `claude setup-token`; `ci.yml` với 4 gate: lint, unit, e2e, bao-mat | 35'        | [module-7-cicd-ai/7.1-dua-len-github-4-gate.md](module-7-cicd-ai/7.1-dua-len-github-4-gate.md)         |
 | 7.2          | Checklist của nhóm theo spec; lớp Checklist Auditor; review PR bằng `/bmad-code-review` ở máy      | 35'        | [module-7-cicd-ai/7.2-checklist-va-review-bmad.md](module-7-cicd-ai/7.2-checklist-va-review-bmad.md)   |
-| 7.3          | `ai-review.yml` với 4 tham số `anthropic_api_key`, `github_token`, `prompt`, `claude_args`         | 30'        | [module-7-cicd-ai/7.3-ai-review-tu-dong.md](module-7-cicd-ai/7.3-ai-review-tu-dong.md)                 |
+| 7.3          | Runner Docker cho job review; `ai-review.yml` với 4 tham số `claude_code_oauth_token`, `github_token`, `prompt`, `claude_args` | 45'        | [module-7-cicd-ai/7.3-ai-review-tu-dong.md](module-7-cicd-ai/7.3-ai-review-tu-dong.md)                 |
 | 7.4          | AI giải thích CI đỏ: che secret, phân loại lỗi, việc tiếp theo; hai job tách khoá và quyền ghi     | 30'        | [module-7-cicd-ai/7.4-ai-giai-thich-ci-do.md](module-7-cicd-ai/7.4-ai-giai-thich-ci-do.md)             |
 | 7.5          | Hàng rào: khoá không lọt, quét câu mồi, trần thời gian/lượt/tiền, 12 luật soát workflow, thử tấn công | 30'     | [module-7-cicd-ai/7.5-hang-rao-bao-mat.md](module-7-cicd-ai/7.5-hang-rao-bao-mat.md)                   |
 | 7.6          | Ruleset khoá `main`, sửa PR theo nhận xét có test, người duyệt, merge; bài nộp                     | 30'        | [module-7-cicd-ai/7.6-khoa-merge-sua-pr.md](module-7-cicd-ai/7.6-khoa-merge-sua-pr.md)                 |
@@ -136,7 +136,7 @@ Module 6 tách `lab6-e2e` từ `main` (bộ test cho code gốc). Ở bài 6.6, 
 làm hồi quy cho tính năng, vừa có chỗ thêm test custom. Các nhánh thử (`lab6-heal`, `lab6-bug`,
 `lab6-mutation`) dùng xong thì xóa, không merge.
 
-Module 7 làm trên `main` của **repo GitHub của bạn**, vì workflow và ruleset phải nằm ở nhánh mặc định: merge
+Module 7 làm trên `main` của **fork của bạn** (fork từ <https://github.com/trandinhduc/shoplite>, bài 7.1), vì workflow và ruleset phải nằm ở nhánh mặc định: merge
 `lab6-e2e` vào `main` (bài 7.1), đẩy thẳng các commit CI lên `main` cho tới bài 7.6, sau đó `main` bị khoá - chỉ
 vào được qua PR có 4 check xanh và một người duyệt. PR của "đồng nghiệp" nằm ở `feature/goi-y-tim-kiem`; các nhánh
 thử (`thu-khoa`, `thu-tan-cong`) dùng xong thì xóa ở cả máy và GitHub.
@@ -168,7 +168,8 @@ PR merge. Hai tag `v0.1.0`, `v0.2.0` gắn trên `main` để agent mẫu `relea
 | OpenSpec             | 1.14.x    | Workflow OPSX: `/opsx:propose`, `/opsx:apply`...                         |
 | BMAD Method          | 6.12.4    | `npx bmad-method@6.12.4 install`; cần **uv** (Python 3.11+ do uv tự tải) |
 | Playwright           | 1.64.x    | Có sẵn trong `devDependencies`; `npx playwright init-agents --loop=claude` |
-| claude-code-action   | v1.0.259  | Ghim theo SHA `ae68417a…` (Claude Code 2.1.309 bên trong); 4 tham số `anthropic_api_key`, `github_token`, `prompt`, `claude_args` |
+| claude-code-action   | v1.0.259  | Ghim theo SHA `ae68417a…` (Claude Code 2.1.309 bên trong); 4 tham số `claude_code_oauth_token` (token của `claude setup-token`; dùng khoá API thì `anthropic_api_key`), `github_token`, `prompt`, `claude_args` |
+| Runner cho job AI review | actions-runner 2.338.2 | Image của lớp: `module-7-cicd-ai/reference/runner/Dockerfile` (Node 22.23.5, `gh`, Claude Code 2.1.309, Bun 1.3.14). Cần một phần mềm chạy container: Rancher Desktop, Docker Engine trong WSL2 hoặc colima (xem `CAI-DAT-MOI-TRUONG.md` mục 5.3); không có thì job chạy trên máy của GitHub |
 | gitleaks             | 8.30.1    | CLI, tải từ GitHub Releases và kiểm sha256 trong workflow                |
 | GitHub CLI (`gh`)    | 2.x       | `gh auth login`; tạo repo, secret, PR, ruleset từ terminal                |
 | Claude Code (Module 8) | 2.1.319 | `claude -p` với `--permission-mode dontAsk`; kiểm ngày 06/11/2026        |

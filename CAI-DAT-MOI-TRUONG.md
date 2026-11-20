@@ -42,7 +42,7 @@ Phiên bản trong bảng là bản **đã ghim trong lab**. Hãy cài đúng b�
 | **2** | **04** · BMAD từ ý tưởng đến backlog | ~215 phút | **BMAD 6.12.4** | ShopLite · `lab4-bmad` |
 | **2** | **05** · BMAD từ Story đến AI review code | 145 phút | BMAD 6.12.4, **model thứ hai** để review, Vitest | ShopLite Ops · Sprint 1 |
 | **3** | **06** · Test tự động với Playwright và AI | 200 phút | **Playwright 1.64** (planner, generator, healer) | ShopLite · `lab6-e2e` |
-| **3** | **07** · CI/CD có AI hỗ trợ | 200 phút | GitHub Actions, claude-code-action, gitleaks 8.30.1 | ShopLite · PR trên GitHub |
+| **3** | **07** · CI/CD có AI hỗ trợ | 218 phút | GitHub Actions, claude-code-action, gitleaks 8.30.1 | ShopLite · PR trên GitHub |
 | **3** | **08** · Agent và workflow tự động | 120 phút | Claude Code 2.1.319+ (skill, subagent, MCP, hook), chạy không người | ShopLite |
 
 > Dự án xuyên suốt là **ShopLite (Next.js 16)**, dùng từ Module 2 tới Module 8. Giảng viên phát repo và gói lab trước mỗi module, bạn không cần tải trước.
@@ -81,6 +81,7 @@ Phiên bản trong bảng là bản **đã ghim trong lab**. Hãy cài đúng b�
 | 10 | Agent thứ hai (Gemini CLI / Claude Code / Codex CLI) | ✅ | 5 |
 | 11 | gitleaks 8.30.1 | Không bắt buộc | 7 |
 | 12 | VS Code (hoặc editor bạn quen) | Khuyên dùng | Tất cả |
+| 13 | Phần mềm chạy container (Rancher Desktop, Docker Engine trong WSL2, hoặc colima) và image runner của lớp | Khuyên dùng | 7 |
 
 ---
 
@@ -99,11 +100,11 @@ Phiên bản trong bảng là bản **đã ghim trong lab**. Hãy cài đúng b�
 
 ### 3.2. Tài khoản
 
-- [ ] **GitHub**: có tài khoản, đã bật 2FA. **Gửi username GitHub cho ban tổ chức trước ngày 1** để được thêm vào organization của lớp (cần cho Module 7).
+- [ ] **GitHub**: có tài khoản, đã bật 2FA. **Gửi username GitHub cho ban tổ chức trước ngày 1**. Ở Module 7 bạn fork repo mẫu về tài khoản này (fork public).
 - [ ] **Claude** (nếu dùng Claude): gói Pro, Max, Team hoặc Enterprise; hoặc API key do giảng viên cấp.
 - [ ] **Google** (nếu dùng Gemini, hoặc để làm model thứ hai): tài khoản Google. Nếu tài khoản Google Workspace của công ty bị chặn, tạo API key ở Google AI Studio.
 
-> Ở Module 7, API key dùng trong GitHub Actions do **giảng viên cấp**, đã đặt giới hạn chi phí. Bạn không cần dùng key cá nhân.
+> Ở Module 7, GitHub Actions gọi Claude bằng **token từ gói thuê bao của bạn** (lệnh `claude setup-token`, tạo trong lớp ở bài 7.1; mỗi lượt AI tính vào hạn mức gói). Không có gói thuê bao Claude thì dùng API key do giảng viên cấp, đã đặt giới hạn chi phí.
 
 ### 3.3. Thư mục làm việc
 
@@ -439,6 +440,94 @@ Trình duyệt được lưu ở:
 | macOS | `brew install gitleaks` |
 | Windows / Linux | Tải bản **v8.30.1** ở https://github.com/gitleaks/gitleaks/releases, giải nén, đặt file chạy vào thư mục có trong PATH |
 
+### 5.3. Phần mềm chạy container và image runner (Module 7, khuyên dùng)
+
+Ở Module 7, job AI review chạy trong một **runner bạn dựng bằng container** trên máy mình. Không chạy được container thì job đó chạy trên máy của GitHub, bạn vẫn làm được lab.
+
+Lab chỉ cần lệnh `docker` chạy được container Linux. Khóa học **không dùng Docker Desktop**, vì phần mềm đó cần giấy phép trả tiền ở nhiều tổ chức; máy đã cài sẵn thì thoát hẳn nó trước khi làm các bước dưới. Dùng một trong các lựa chọn mã nguồn mở sau, chọn theo môi trường của bạn:
+
+| Môi trường của bạn (mục 3.4) | Dùng | Giấy phép |
+|---|---|---|
+| **Windows gốc** (PowerShell, Git Bash) | **Rancher Desktop**, chọn engine `dockerd (moby)` | Apache-2.0 |
+| **WSL2** (Ubuntu) | **Docker Engine** cài trong Ubuntu của WSL2 | Apache-2.0 |
+| **macOS** | **colima** (hoặc Rancher Desktop) | MIT |
+| **Linux** | **Docker Engine** | Apache-2.0 |
+
+> ⚠️ Lab đã chạy thử trọn bài với **colima trên macOS (chip Apple)**. Image cũng đã build và kiểm công cụ trên Docker Engine, Linux x64 (máy của GitHub). Rancher Desktop trên Windows và Docker Engine trong WSL2 viết theo tài liệu chính thức, **chưa chạy thử**: báo trợ giảng nếu có bước không khớp.
+
+#### A. Windows gốc: Rancher Desktop
+
+Cần Windows 11 đã cập nhật, máy bật ảo hóa, và **WSL đã cài trước** (`wsl --install` trong PowerShell quyền admin, rồi khởi động lại). Nên có 8 GB RAM và 4 CPU.
+
+1. Tải file `Rancher.Desktop.Setup.X.Y.Z.msi` ở <https://github.com/rancher-sandbox/rancher-desktop/releases> (bản khi soạn bài: 1.25.0) và chạy. Chọn cài cho mọi người dùng nếu được hỏi.
+2. Mở Rancher Desktop. Trong **Preferences › Container Engine › General** chọn **dockerd (moby)**: lựa chọn này mới cho lệnh `docker`. (Lựa chọn còn lại, `containerd`, dùng lệnh `nerdctl`, lab không dùng.)
+3. Trong **Preferences › Kubernetes** bỏ tick **Enable Kubernetes**: lab không cần Kubernetes, tắt đi cho nhẹ máy. Ứng dụng tự khởi động lại.
+4. Mở một cửa sổ **Git Bash mới** và kiểm tra ở mục "Kiểm tra" bên dưới.
+
+Máy Windows 10, hoặc không cài được Rancher Desktop: cài Ubuntu trong WSL2 rồi làm theo mục B. Khi đó phần runner của bài 7.3 gõ trong cửa sổ Ubuntu, phần còn lại của lab vẫn gõ trong Git Bash (bài 7.3 có ghi rõ).
+
+#### B. WSL2 hoặc Linux: Docker Engine
+
+Gõ trong Ubuntu (22.04, 24.04 hoặc mới hơn). Trên Windows: đây là cửa sổ Ubuntu của WSL2, không phải PowerShell.
+
+```bash
+# Kho apt chính thức của Docker
+sudo apt update
+sudo apt install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
+sudo apt update
+
+# Cài Docker Engine, cho user của bạn dùng docker không cần sudo
+sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin
+sudo usermod -aG docker $USER
+newgrp docker                        # hoặc đóng rồi mở lại cửa sổ Ubuntu
+sudo systemctl enable --now docker.service
+```
+
+Riêng với WSL2:
+
+- `systemctl` báo lỗi nghĩa là bản Ubuntu của bạn chưa bật systemd (Ubuntu cài bằng `wsl --install` gần đây đã bật sẵn). Thêm hai dòng `[boot]` và `systemd=true` vào `/etc/wsl.conf`, chạy `wsl.exe --shutdown` trong PowerShell, rồi mở lại Ubuntu.
+- **Giữ một cửa sổ Ubuntu mở trong suốt giờ lab.** Dịch vụ systemd không giữ cho WSL sống: khi không còn cửa sổ nào mở, WSL có thể tắt bản Ubuntu dù Docker đang chạy; runner tắt theo và job AI review đứng ở "Queued".
+
+Nhóm `docker` cho user quyền ngang root trên máy đó. Với máy cá nhân dùng cho lab thì chấp nhận được.
+
+#### C. macOS: colima
+
+```bash
+brew install colima docker
+colima start                         # chạy lại lệnh này sau mỗi lần khởi động máy
+```
+
+Muốn dùng Rancher Desktop trên macOS (13 trở lên): tải file `.dmg` ở trang releases ở mục A, rồi làm bước 2 và 3 của mục A.
+
+#### Kiểm tra (mọi môi trường)
+
+```bash
+docker version                       # có cả phần Client và phần Server
+docker run --rm hello-world          # phải in "Hello from Docker!"
+```
+
+#### Build image runner ở nhà
+
+Image nặng **3,5 GB (máy ARM64) tới 3,9 GB (máy x64)**, build mất 10-15 phút với mạng nhà: **build ở nhà**, đừng build trên Wi-Fi của lớp. Giảng viên phát file `Dockerfile` cùng gói lab Module 7 (`module-7-cicd-ai/reference/runner/`). Người dùng WSL2 có gói lab nằm trên ổ Windows thì đường dẫn có dạng `/mnt/c/ai-sdlc/lab-guides/module-7-cicd-ai/reference/runner`.
+
+```bash
+docker build -t shoplite-runner <thư mục chứa Dockerfile>
+docker run --rm shoplite-runner bash -c 'node --version; gh --version | head -1; ~/.local/bin/claude --version; ~/.bun/bin/bun --version'
+```
+
+Kết quả mong đợi: `v22.…`, `gh version 2.…`, `2.1.309 (Claude Code)`, `1.3.14`. Lệnh build dừng với `curl: (18) Transferred a partial file` thì chạy lại, các bước đã xong được dùng lại.
+
 ---
 
 ## Bước 6 · GitHub
@@ -456,13 +545,11 @@ gh auth status        # phải thấy "Logged in to github.com"
 git ls-remote https://github.com/github/spec-kit.git HEAD   # phải in ra một mã commit
 ```
 
-Khi đã được thêm vào organization của lớp, kiểm tra bạn thấy được org:
+Kiểm tra bạn thấy được repo mẫu của lớp (Module 7 sẽ fork repo này):
 
 ```bash
-gh api user/orgs --jq '.[].login'
+gh repo view trandinhduc/shoplite --json name,visibility --jq '"\(.name) \(.visibility)"'   # shoplite PUBLIC
 ```
-
-> Nếu công ty bắt dùng SSO cho GitHub, sau khi đăng nhập cần vào https://github.com/settings/connections/applications và bấm **Authorize** cho org của lớp.
 
 ---
 
@@ -561,7 +648,7 @@ Nếu học trên mạng công ty có tường lửa hoặc proxy, gửi danh s�
 | Claude | `claude.ai`, `*.anthropic.com`, `*.claude.com` |
 | Gemini | `accounts.google.com`, `*.googleapis.com`, `aistudio.google.com` |
 | npm | `registry.npmjs.org` |
-| GitHub | `github.com`, `api.github.com`, `*.githubusercontent.com` |
+| GitHub | `github.com`, `api.github.com`, `*.githubusercontent.com`, `*.actions.githubusercontent.com` (runner của Module 7) |
 | uv / Python | `astral.sh`, `pypi.org`, `files.pythonhosted.org` |
 | Playwright | `cdn.playwright.dev`, `playwright.download.prss.microsoft.com` |
 | Node / fnm | `nodejs.org`, `fnm.vercel.app` |
@@ -590,6 +677,7 @@ Tick hết trước buổi học đầu tiên:
 - [ ] Đã chạy `npm cache add bmad-method@6.12.4`
 - [ ] Đã tải Chromium cho Playwright 1.64.0
 - [ ] Có model thứ hai cho Module 5
+- [ ] (Module 7, nếu máy chạy được container) `docker run --rm hello-world` chạy được và `docker images shoplite-runner` có image đã build
 
 **Kiểm tra**
 - [ ] `node kiem-tra-moi-truong.mjs` không còn dòng `[LỖI ]`

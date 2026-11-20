@@ -49,6 +49,7 @@ Log nào từng lộ secret? Việc cần làm theo thứ tự:
 | 5   | `--max-turns 3` trên nhánh thử (7.5)                                | Job dừng sớm, không treo; ai chặn nó vào `main`?       |                                    |                   |
 | 6   | Phản ví dụ `ai-tu-merge.yml` (7.5)                                  | Soát workflow đỏ nhiều luật                            | Số lỗi:          3 lỗi nguy hiểm nhất: |                |
 | 7   | `gh api .../actions/permissions/workflow` (7.5)                     | `read`, `can_approve...: false`                        |                                    |                   |
+| 8   | Workflow thử in `whoami`, `hostname`, `ls -A ~` trên runner (7.5)   | Thấy thư mục của container; soát workflow vẫn 0 lỗi    | Máy:        HOME có gì:            |                   |
 
 ## Bảng D - Khoá merge (bài 7.6)
 
@@ -69,5 +70,5 @@ code cũ ___.
 
 1. Trong các lỗi của Bảng A, lỗi nào gate tất định chặn được? Lỗi còn lại muốn gate chặn thì cần thêm gì?
 2. AI review ở máy và trên CI có cùng kết luận không? Điều đó nói gì về việc để AI làm check bắt buộc?
-3. Gộp job phân tích lỗi và job đăng comment làm một thì kẻ tấn công cần làm gì để lấy khoá API?
+3. Gộp job phân tích lỗi và job đăng comment làm một thì kẻ tấn công cần làm gì để lấy khoá?
 4. Sàn coverage nói gì và không nói gì về tính năng mới?

@@ -14,7 +14,8 @@ git clone <repo-shoplite> shoplite-demo && cd shoplite-demo && npm install
 # ... làm lần lượt bài 7.1 (Bước 1-4), 7.2 (Bước 1-3), 7.3 (Bước 1-2), 7.4 (Bước 4), 7.5 (Bước 1) bằng file đáp án:
 #     workflows/ci.yml, workflows/ai-review.yml, scripts/ci/*.mjs, config/*, spec, checklist, bmad-code-review.toml
 gh repo create <org>/shoplite-demo --private --source . --remote origin --push
-gh secret set ANTHROPIC_API_KEY                       # khoá demo, workspace có hạn mức chi tiêu
+claude setup-token                                    # terminal riêng; chép token in ra
+gh secret set CLAUDE_CODE_OAUTH_TOKEN                 # token của gói thuê bao (workflow đáp án dùng tham số claude_code_oauth_token)
 gh api -X POST repos/{owner}/{repo}/rulesets --input ../lab-guides/module-7-cicd-ai/reference/ruleset-main.json
 
 # 2. PR #1 của "Minh" (cảnh 2-3) - mở hôm trước để AI review chạy xong sẵn
@@ -84,7 +85,7 @@ model mọi thứ đều ổn. Bên bản mẫu, model nói gì thì lint vẫn 
 
 | Sự cố                                                   | Xử lý nhanh                                                                                         |
 | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `AI review` đỏ ở bước action: `ANTHROPIC_API_KEY` trống | `gh secret list` - chưa đặt khoá; đặt rồi `gh pr close 1 && gh pr reopen 1`                          |
+| `AI review` đỏ ở bước action: thiếu `CLAUDE_CODE_OAUTH_TOKEN` | `gh secret list` - chưa đặt token; đặt rồi `gh pr close 1 && gh pr reopen 1`                   |
 | `AI review` hết trần (`error_max_turns`, hết budget)    | Đúng là hàng rào đang chạy; mở kết quả làm sẵn trong `demo/`                                         |
 | Ruleset báo 403                                         | Repo private trên tài khoản Free: dùng repo của organization gói Team hoặc repo public               |
 | Check bắt buộc kẹt "Expected - waiting for status"      | Tên job trong `ci.yml` khác tên check trong ruleset (ví dụ đổi `e2e` thành `test-e2e`) - đúng bài học |

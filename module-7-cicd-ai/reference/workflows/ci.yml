@@ -134,7 +134,7 @@ jobs:
 
   # ---------------------------------------------------------------------------
   # AI giải thích CI đỏ (bài 7.4). Tách hai job:
-  #   phan-tich-loi: CẦM KHOÁ API, chỉ có quyền đọc, không chạy code nào của PR.
+  #   phan-tich-loi: CẦM KHOÁ (token Claude), chỉ có quyền đọc, không chạy code nào của PR.
   #   dang-phan-tich: có quyền ghi comment, KHÔNG cầm khoá, không gọi AI.
   # Log có thể chứa chữ do người viết PR đặt vào (tên test, thông báo lỗi, commit message).
   # ---------------------------------------------------------------------------
@@ -173,7 +173,8 @@ jobs:
         continue-on-error: true # AI không chạy được thì comment vẫn có bảng gate
         uses: anthropics/claude-code-action@ae68417a745a5df4b2124873632bd73a2255e6f6 # v1.0.259
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # Token của gói thuê bao. (Dùng khoá API: tham số anthropic_api_key, xem ô ghi chú ở Bước 2 bài 7.1.)
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
             Bạn giúp đội ShopLite đọc CI đỏ. Đọc DUY NHẤT file .ci/ci-context.md (log đã che secret, kết quả
